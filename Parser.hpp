@@ -39,7 +39,4 @@ auto ParseLinesMap(const std::string& input, std::function<O(const std::string&)
   return result;
 }
 
-template <typename O>
-auto ParseString()
-
 #endif // AOC_CPP_2021_PARSER_HPP

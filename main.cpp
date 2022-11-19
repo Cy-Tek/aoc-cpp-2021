@@ -35,13 +35,13 @@ auto CreateDays() {
 
 int main() {
   auto days = CreateDays();
-  for (int i{1}; auto &day: days) {
+  for (int i = 1; auto &day: days) {
     std::cout << "Day " << i << std::endl;
     std::cout << std::setfill('-') << std::setw(15) << '-' << std::endl;
     std::cout << "Part 1: " << day->Part1() << std::endl;
     std::cout << "Part 2: " << day->Part2() << std::endl;
     std::cout << std::endl;
   }
-  std::cout << "Hello, World!" << std::endl;
+
   return 0;
 }
