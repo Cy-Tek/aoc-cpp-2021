@@ -12,11 +12,12 @@
 
 class Day1 : public Day {
 public:
-    explicit Day1(std::string input) : Day(std::move(input)) {
+    explicit Day1(std::string input) : Day(std::move(input), 1) {
       mItems = ParseLinesMap<int>(mInput, [](auto s) { return std::stoi(s); });
     }
 
-    std::string Part1() override {
+    [[nodiscard]]
+    std::string Part1() const override {
       auto prev = mItems.at(0);
       auto count = 0;
       for (auto i = 1; i < mItems.size(); i++) {
@@ -27,7 +28,8 @@ public:
       return std::to_string(count);
     }
 
-    std::string Part2() override {
+    [[nodiscard]]
+    std::string Part2() const override {
       auto prev = INT_MAX;
       auto count = 0;
 

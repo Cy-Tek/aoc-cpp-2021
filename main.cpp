@@ -5,6 +5,7 @@
 #include <fstream>
 #include "days/Day.hpp"
 #include "days/Day1.hpp"
+#include "days/Day2.hpp"
 
 auto LoadInputsFromDirectory(const std::string &dir) {
   using std::filesystem::recursive_directory_iterator;
@@ -27,7 +28,8 @@ auto LoadInputsFromDirectory(const std::string &dir) {
 auto CreateDays() {
   auto inputs = LoadInputsFromDirectory("./inputs");
   auto days = std::vector<std::shared_ptr<Day>>{
-      {std::make_shared<Day1>(inputs["day1"])}
+      {std::make_shared<Day1>(inputs["day1"])},
+      {std::make_shared<Day2>(inputs["day2"])},
   };
 
   return days;
@@ -36,11 +38,7 @@ auto CreateDays() {
 int main() {
   auto days = CreateDays();
   for (int i = 1; auto &day: days) {
-    std::cout << "Day " << i << std::endl;
-    std::cout << std::setfill('-') << std::setw(15) << '-' << std::endl;
-    std::cout << "Part 1: " << day->Part1() << std::endl;
-    std::cout << "Part 2: " << day->Part2() << std::endl;
-    std::cout << std::endl;
+    std::cout << *day;
   }
 
   return 0;

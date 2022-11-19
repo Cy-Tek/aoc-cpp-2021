@@ -20,7 +20,7 @@ auto ParseLines(const std::string& str) {
   auto line = std::string{};
 
   while (std::getline(stream, line, '\n')) {
-    result.push_back({line});
+    result.push_back(T{line});
   }
 
   return result;
