@@ -8,7 +8,6 @@
 
 #include <vector>
 #include "Day.hpp"
-#include "../Parser.hpp"
 
 class Day2: public Day {
 public:

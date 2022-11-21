@@ -6,6 +6,7 @@
 #include <stdexcept>
 #include <iostream>
 #include "Day2.hpp"
+#include "../Parser.hpp"
 
 Day2::Day2(std::string input): Day(std::move(input), 2) {
   mInstructions = ParseLines<Instruction>(mInput);
@@ -72,7 +73,7 @@ Day2::Instruction::Instruction(const std::string &str) {
     this->direction = WordToDirection(dir);
     this->distance = std::stoi(dist);
   } catch (std::invalid_argument &exception) {
-    std::cout << "Failed to create Instruction from: " << str << std::endl;
-    std::cout << exception.what() << std::endl;
+    std::cerr << "Failed to create Instruction from: " << str << std::endl;
+    std::cerr << exception.what() << std::endl;
   }
 }

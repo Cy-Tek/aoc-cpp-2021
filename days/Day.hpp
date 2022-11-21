@@ -29,7 +29,6 @@ public:
       os << std::setfill('-') << std::setw(maxLength) << '-' << std::endl;
       os << "Part 1: " << day.Part1() << std::endl;
       os << "Part 2: " << day.Part2() << std::endl;
-      os << std::endl;
 
       return os;
     }
