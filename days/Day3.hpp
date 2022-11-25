@@ -7,6 +7,7 @@
 
 
 #include <vector>
+#include <functional>
 #include "Day.hpp"
 
 class Day3: public Day {
@@ -20,7 +21,14 @@ public:
     std::string Part2() const override;
 
 private:
-    kj;
+    enum Generator {
+        Oxygen,
+        CO2
+    };
+
+    static int FilterVec(const std::vector<std::string> &list, Generator type);
+    static constexpr char GetTestBit(Generator type, int ones, int zeros);
+
     std::vector<std::string> mNums;
 };
 
