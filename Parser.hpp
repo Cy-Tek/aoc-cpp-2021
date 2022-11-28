@@ -26,8 +26,33 @@ auto ParseLines(const std::string& str) {
   return result;
 }
 
+template <FromStr T, size_t N>
+auto ParseLines(const std::string& str) {
+  auto stream = std::stringstream{str};
+  auto objectStream = std::stringstream{};
+  auto result = std::vector<T>{};
+  auto line = std::string{};
+
+  while (!stream.eof()) {
+    for (auto i = 0; i < N; i++) {
+      if (std::getline(stream, line, '\n')) {
+        objectStream << line;
+
+        if (i == N - 1) {
+          result.push_back(T{objectStream});
+          objectStream.clear();
+        }
+      } else {
+        break;
+      }
+    }
+  }
+
+  return result;
+}
+
 template <typename O>
-auto ParseLinesMap(const std::string& input, std::function<O(const std::string&)> mapFn) {
+auto ParseLines(const std::string& input, std::function<O(const std::string&)> mapFn) {
   auto stream = std::stringstream{input};
   auto result = std::vector<O>{};
   auto line = std::string{};

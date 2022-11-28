@@ -13,7 +13,7 @@
 class Day1 : public Day {
 public:
     explicit Day1(std::string input) : Day(std::move(input), 1) {
-      mItems = ParseLinesMap<int>(mInput, [](auto s) { return std::stoi(s); });
+      mItems = ParseLines<int>(mInput, [](auto s) { return std::stoi(s); });
     }
 
     [[nodiscard]]
