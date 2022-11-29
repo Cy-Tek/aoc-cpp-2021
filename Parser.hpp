@@ -10,6 +10,8 @@
 #include <vector>
 #include <functional>
 
+std::vector<std::string> SplitString(const std::string &str, std::string delimiter);
+
 template <typename T>
 concept FromStr = std::constructible_from<std::string>;
 
@@ -59,19 +61,6 @@ auto ParseLines(const std::string& input, std::function<O(const std::string&)> m
 
   while (std::getline(stream, line, '\n')) {
     result.push_back(mapFn(line));
-  }
-
-  return result;
-}
-
-std::vector<std::string> SplitString(const std::string &str, std::string delimiter) {
-  size_t pos{0};
-  size_t marker{0};
-  auto result = std::vector<std::string>{};
-
-  while ((marker = str.find(delimiter, pos)) != std::string::npos) {
-    result.push_back(str.substr(pos, marker));
-    pos += marker;
   }
 
   return result;
