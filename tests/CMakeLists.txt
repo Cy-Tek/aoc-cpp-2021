@@ -13,7 +13,7 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_executable(test Day1_unittest.cc Day2_unittest.cc ../days/Day2.cc ../days/Day3.cc Day3_unittest.cc)
+add_executable(test Day1_unittest.cc Day2_unittest.cc ../days/Day1.cc ../days/Day2.cc ../days/Day3.cc Day3_unittest.cc Parser_unittest.cc)
 target_link_libraries(test GTest::gtest_main)
 
 include(GoogleTest)
