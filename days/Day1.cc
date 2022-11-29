@@ -3,6 +3,7 @@
 //
 
 #include "Day1.hpp"
+#include "../Parser.hpp"
 
 Day1::Day1(std::string input) : Day(std::move(input), 1) {
   mItems = ParseLines<int>(mInput, [](auto s) { return std::stoi(s); });
