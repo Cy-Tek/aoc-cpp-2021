@@ -2,7 +2,6 @@
 // Created by hanna on 11/19/2022.
 //
 
-#include <sstream>
 #include <stdexcept>
 #include <iostream>
 #include "Day2.hpp"
